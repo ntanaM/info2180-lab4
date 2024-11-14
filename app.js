@@ -1,27 +1,31 @@
 document.addEventListener("DOMContentLoaded", function(){
-    // Code for exercise 2
+    // Code for exercise 3
     // Get button
     const button = document.getElementById("button");
-
-    // Set up query
-    const userRequest = new XMLHttpRequest();
-    let url = "http://localhost/info2180-lab4/superheroes.php"
-    userRequest.open('GET', url);
-    userRequest.send();
+    const userInput = document.getElementById("search");
+    const result = document.getElementById("result");
 
 
     // function
-    function displayList(){
-        if(userRequest.readyState === XMLHttpRequest.DONE){
-            if(userRequest.status === 200){
-                let response = userRequest.responseText; // Displays superhero list
-                alert(response);
+    function displayList(){    
+        const userQuery = userInput.value.trim().toLowerCase();
+        const userRequest = new XMLHttpRequest();
+        userRequest.open('GET', `superheroes.php?query=${encodeURIComponent(userQuery)}`, true);
+        userRequest.send();
+        userRequest.onreadystatechange = function(){
+            if(userRequest.readyState === XMLHttpRequest.DONE){
+                if(userRequest.status === 200){
+                    let response = userRequest.responseText; 
+                    result.innerHTML = response;                   
+                }
+    
+                else{
+                    alert("There was a problem processing your request");
+                }
             }
 
-            else{
-                alert("There was a problem processing your request");
-            }
-        }
+        }   
+        
     }
     // Add Event Listener to button
     button.addEventListener('click', displayList);
