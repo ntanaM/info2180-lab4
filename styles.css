@@ -1,0 +1,48 @@
+.webpage{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    color: white;
+    background:#2e86c1;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+    
+}
+
+body{
+    background-color:#d5d5d5;
+}
+
+hr{
+    background-color: green;
+    padding-bottom: 1px;
+}
+
+h5 {
+    padding-top: 1px;
+    color: red;
+    font-size: 15px;
+}
+
+button{
+    color: wheat;
+    background-color: red;
+    font-size: 20px;
+    
+
+
+
+}
+
+input{
+    padding-right: 250px;
+    height: 20px;
+    background-color: aliceblue;
+
+}
+
+#result{
+
+}
