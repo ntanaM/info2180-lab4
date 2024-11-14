@@ -87,9 +87,10 @@ foreach($superheroes as $superhero){
 if($query){
     if($searchHeroes !== []){
         foreach($searchHeroes as $hero){
+            $heroName = strtoupper($hero['name']);
             echo "<div>
             <h3>{$hero['alias']}</h3>
-            <h4>aka {$hero['name']}</h4>
+            <h4>A.K.A {$heroName}</h4>
             <p>{$hero['biography']}</p>
             </div>";
 
